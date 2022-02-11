@@ -33,7 +33,8 @@ public class PrinterUse implements printer {
         name();
         print();
         price();
-        System.out.println("打印成功");
+        System.out.println("打印机正在工作中");
     }
+
 
 }

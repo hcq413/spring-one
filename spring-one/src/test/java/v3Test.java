@@ -8,5 +8,6 @@ public class v3Test {
     public void A1() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("v3.xml");
         PrinterUse use = (PrinterUse) context.getBean("printerUse");
+        use.printshow();
     }
 }
