@@ -16,7 +16,12 @@
                 <ref bean="user-2"/>
             </list>
         </property>
-        <property name="set" ref="user-1"/>
+        <property name="set" >
+            <set>
+                <ref bean="user-1"/>
+                <ref bean="user-2"/>
+            </set>
+        </property>
         <property name="map">
             <map>
                 <entry key="1" value-ref="user-1"/>
