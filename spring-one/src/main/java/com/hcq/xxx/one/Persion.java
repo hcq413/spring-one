@@ -13,5 +13,4 @@ public class Persion {
     private Integer id;
     private String username;
     private String password;
-
 }

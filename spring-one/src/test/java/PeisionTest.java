@@ -13,7 +13,7 @@ public class PeisionTest {
         Persion persion = (Persion) context.getBean("persion");
         log.info(persion);
         long millis1 = System.currentTimeMillis();
-        System.out.println("反射创建时间:" + (millis1 - millis)+"ms");
+        System.out.println("反射创建时间:" + (millis1 - millis) + "ms");
     }
 
     @Test
@@ -25,6 +25,7 @@ public class PeisionTest {
         persion.setPassword("12345678");
         log.info(persion);
         long millis1 = System.currentTimeMillis();
-        System.out.println("反射创建时间:" + (millis1 - millis)+"ms");
+        System.out.println("反射创建时间:" + (millis1 - millis) + "ms");
     }
+
 }
