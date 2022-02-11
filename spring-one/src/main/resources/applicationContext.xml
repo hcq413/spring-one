@@ -20,7 +20,7 @@
 <!--        <property name="son2" ref="son2"/>-->
 <!--    </bean>-->
 <!--    <bean id="father" class="com.hcq.xxx.one.v1.Father" p:son1-ref="son1" p:son2-ref="son2"/>-->
-    <bean id="father" class="com.hcq.xxx.one.v1.Father">
+    <bean id="father" class="com.hcq.xxx.one.v1.Father" scope="prototype">
         <constructor-arg index="0" ref="son1"/>
         <constructor-arg index="1" ref="son2"/>
     </bean>
