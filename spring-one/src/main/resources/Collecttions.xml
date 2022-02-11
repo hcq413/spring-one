@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="user-1" class="com.hcq.xxx.one.v2.User" p:username="hcq" p:password="413"/>
+    <bean id="user-2" class="com.hcq.xxx.one.v2.User" p:username="admin" p:password="123456"/>
+    <bean id="useremp" class="com.hcq.xxx.one.v2.UserEmp">
+        <property name="name" value="财务部"/>
+        <property name="list">
+            <list>
+                <ref bean="user-1"/>
+                <ref bean="user-2"/>
+            </list>
+        </property>
+        <property name="set" ref="user-1"/>
+        <property name="map">
+            <map>
+                <entry key="1" value-ref="user-1"/>
+                <entry key="2" value-ref="user-2"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="1">hcq413</prop>
+                <prop key="2">学习java真好</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

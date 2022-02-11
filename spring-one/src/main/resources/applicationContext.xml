@@ -12,4 +12,16 @@
         <property name="password" value="123456"/>
     </bean>
 
+    <bean id="son1" class="com.hcq.xxx.one.v1.Son1"/>
+    <bean id="son2" class="com.hcq.xxx.one.v1.Son2"/>
+
+<!--    <bean id="father" class="com.hcq.xxx.one.v1.Father">-->
+<!--        <property name="son1" ref="son1"/>-->
+<!--        <property name="son2" ref="son2"/>-->
+<!--    </bean>-->
+<!--    <bean id="father" class="com.hcq.xxx.one.v1.Father" p:son1-ref="son1" p:son2-ref="son2"/>-->
+    <bean id="father" class="com.hcq.xxx.one.v1.Father">
+        <constructor-arg index="0" ref="son1"/>
+        <constructor-arg index="1" ref="son2"/>
+    </bean>
 </beans>
