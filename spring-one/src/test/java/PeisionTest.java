@@ -9,7 +9,7 @@ public class PeisionTest {
     @Test
     public void show() {
         long millis = System.currentTimeMillis();
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Aop/applicationContext.xml");
         Persion persion = (Persion) context.getBean("persion");
         log.info(persion);
         long millis1 = System.currentTimeMillis();

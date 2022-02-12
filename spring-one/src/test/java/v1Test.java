@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class v1Test {
     @Test
     public void a1() {
-        Father father = (Father) new ClassPathXmlApplicationContext("applicationContext.xml").getBean("father");
+        Father father = (Father) new ClassPathXmlApplicationContext("Aop/applicationContext.xml").getBean("father");
         father.play();
     }
 }
