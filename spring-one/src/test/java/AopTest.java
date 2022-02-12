@@ -1,4 +1,4 @@
-import com.hcq.xxx.Aop.service.UserDao;
+import com.hcq.xxx.Aop.v1.service.UserDao;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AopTest {

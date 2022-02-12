@@ -1,4 +1,4 @@
-package com.hcq.xxx.Aop.service;
+package com.hcq.xxx.Aop.v1.service;
 
 public class Userimpl implements UserDao {
 
@@ -11,5 +11,16 @@ public class Userimpl implements UserDao {
     @Override
     public String getName(String name) {
         return "他的名字是:"+name;
+    }
+
+    /**
+     * 获取总和
+     *
+     * @param id ID号
+     * @return {@link Integer}
+     */
+    @Override
+    public Integer getSum(Integer id) {
+        return id;
     }
 }

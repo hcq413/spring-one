@@ -9,8 +9,8 @@
    http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-    <bean id="myaspect" class="com.hcq.xxx.Aop.aop.MyAspect"/>
-    <bean id="userimpl" class="com.hcq.xxx.Aop.service.Userimpl"/>
+    <bean id="myaspect" class="com.hcq.xxx.Aop.v1.aop.MyAspect"/>
+    <bean id="userimpl" class="com.hcq.xxx.Aop.v1.service.Userimpl"/>
     <aop:config>
         <aop:pointcut id="poincut" expression="execution(* com.hcq.xxx.Aop.service.*.*(..))"/>
         <aop:aspect ref="myaspect">
