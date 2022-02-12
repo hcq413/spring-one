@@ -21,6 +21,6 @@ public class Userimpl implements UserDao {
      */
     @Override
     public Integer getSum(Integer id) {
-        return id;
+        return id/0;
     }
 }

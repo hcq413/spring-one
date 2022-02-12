@@ -1,10 +1,12 @@
-import com.hcq.xxx.Aop.v1.service.UserDao;
+import com.hcq.xxx.Aop.v3.service.UserServiceImpl;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class AopTest {
-    public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Aop/bop.xml");
-        UserDao bean = (UserDao) context.getBean("userimpl");
-        bean.getName("1");
+
+    @Test
+    public void show2() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Aop/Bop.xml");
+        UserServiceImpl demo = (UserServiceImpl) context.getBean("demo");
+        demo.finduserId("1");
     }
 }

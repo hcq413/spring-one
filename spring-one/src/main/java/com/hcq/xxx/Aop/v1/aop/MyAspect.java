@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+
 @Aspect
 @Component
 public class MyAspect {
@@ -26,7 +27,7 @@ public class MyAspect {
         System.out.println("后置   方法名：" + methodName + ", 参数列表：" + Arrays.toString(args) + ", 拦截的目标对象：" + target + ", 返回值 ：" + value);
     }
 
-    public  Object  around(ProceedingJoinPoint jp) throws Throwable {
+    public Object around(ProceedingJoinPoint jp) throws Throwable {
         System.out.println("增强前置环绕中");
         String name = jp.getSignature().getName();
         Object[] args = jp.getArgs();
@@ -38,7 +39,10 @@ public class MyAspect {
         String methodName = jp.getSignature().getName();  //获取被 拦截方法的方法名
         Object[] args1 = jp.getArgs(); //被 拦截方法的参数列表
         Object target1 = jp.getTarget();  //获取拦截的目标对象（业务对象）
-        System.out.println("后置   方法名：" + methodName + ", 参数列表：" + Arrays.toString(args1) + ", 拦截的目标对象：" + target1+ ", 返回值 ：" + proceed);
+        System.out.println("后置   方法名：" + methodName + ", 参数列表：" + Arrays.toString(args1) + ", 拦截的目标对象：" + target1 + ", 返回值 ：" + proceed);
         return proceed;
+    }
+    public void afterThrowing(JoinPoint joinPoint, RuntimeException e) {
+        System.out.println(e.getMessage());
     }
 }
