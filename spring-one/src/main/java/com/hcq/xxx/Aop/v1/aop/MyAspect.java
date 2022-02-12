@@ -4,12 +4,10 @@ package com.hcq.xxx.Aop.v1.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
-@Component
 public class MyAspect {
     public void before(JoinPoint jp) {
         System.out.println("前置环绕中");

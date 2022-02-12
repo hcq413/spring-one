@@ -1,6 +1,6 @@
 package com.hcq.xxx.Aop.v3.service;
 
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
 
 
 public class UserServiceImpl implements UserService {
