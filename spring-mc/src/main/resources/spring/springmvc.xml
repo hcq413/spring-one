@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+            http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+    <!--    &lt;!&ndash; 配置非注解的HandlerMapping &ndash;&gt;-->
+    <!--    &lt;!&ndash;    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>&ndash;&gt;-->
+    <!--    <bean class=" org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+    <!--    &lt;!&ndash; 配置非注解的HandlerAdapter &ndash;&gt;-->
+    <!--    &lt;!&ndash;    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>&ndash;&gt;-->
+    <!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!--    &lt;!&ndash; 配置Handler类 &ndash;&gt;-->
+    <bean name="/hello.action" class="colltroller.FirstController"/>
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="colltroller"/>
+    <!-- 配置视图解析器 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
