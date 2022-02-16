@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.BookMapper">
+    <resultMap id="BaseResultMap" type="com.domain.Book">
+        <!--@mbg.generated-->
+        <!--@Table book-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="category_id" jdbcType="INTEGER" property="categoryId"/>
+        <result column="publish_time" jdbcType="DATE" property="publishTime"/>
+        <result column="price" jdbcType="DECIMAL" property="price"/>
+        <result column="publish_name" jdbcType="VARCHAR" property="publishName"/>
+        <result column="self_time" jdbcType="TIMESTAMP" property="selfTime"/>
+        <association property="bookCategory" javaType="com.domain.BookCategory">
+            <result column="bookid" property="id"/>
+            <result column="name1" property="name"/>
+        </association>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `NAME`, category_id, publish_time, price, publish_name, self_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from book
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from book
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.Book" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into book (`NAME`, category_id, publish_time,
+                          price, publish_name)
+        values (#{name,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, #{publishTime,jdbcType=DATE},
+                #{price,jdbcType=DECIMAL}, #{publishName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.Book"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into book
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `NAME`,
+            </if>
+            <if test="categoryId != null">
+                category_id,
+            </if>
+            <if test="publishTime != null">
+                publish_time,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="publishName != null">
+                publish_name,
+            </if>
+            <if test="selfTime != null">
+                self_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryId != null">
+                #{categoryId,jdbcType=INTEGER},
+            </if>
+            <if test="publishTime != null">
+                #{publishTime,jdbcType=DATE},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="publishName != null">
+                #{publishName,jdbcType=VARCHAR},
+            </if>
+            <if test="selfTime != null">
+                #{selfTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.domain.Book">
+        <!--@mbg.generated-->
+        update book
+        <set>
+            <if test="name != null">
+                `NAME` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="categoryId != null">
+                category_id = #{categoryId,jdbcType=INTEGER},
+            </if>
+            <if test="publishTime != null">
+                publish_time = #{publishTime,jdbcType=DATE},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="publishName != null">
+                publish_name = #{publishName,jdbcType=VARCHAR},
+            </if>
+            <if test="selfTime != null">
+                self_time = #{selfTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.domain.Book">
+        <!--@mbg.generated-->
+        update book
+        set `NAME`       = #{name,jdbcType=VARCHAR},
+            category_id  = #{categoryId,jdbcType=INTEGER},
+            publish_time = #{publishTime,jdbcType=DATE},
+            price        = #{price,jdbcType=DECIMAL},
+            publish_name = #{publishName,jdbcType=VARCHAR},
+            self_time    = #{selfTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2022-02-16-->
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from book
+    </select>
+
+    <select id="bookandBookResult" resultMap="BaseResultMap">
+        select book.*, book_category.`NAME` AS "name1", book_category.id AS bookid
+        FROM book,
+             book_category
+        WHERE book.category_id = book_category.id
+        ORDER BY book.publish_time desc
+    </select>
+
+    <select id="bookandBookResultGroipby" resultMap="BaseResultMap">
+        select book_category.`NAME` as name1, book.category_id as bookid
+        FROM book
+                     INNER JOIN book_category ON book.category_id = book_category.id
+        GROUP BY name1, bookid
+    </select>
+
+    <select id="selecltbyusername" resultMap="BaseResultMap" parameterType="com.domain.Book">
+        select book.*, book_category.`NAME` AS "name1", book_category.id AS bookid
+        FROM book,
+             book_category
+                WHERE book.category_id = book_category.id
+        <if test="categoryId != null">
+            and book.category_id = #{categoryId}
+        </if>
+        ORDER BY book.publish_time desc
+    </select>
+</mapper>
