@@ -5,4 +5,6 @@ import com.hcq.spring.domain.Auctionuser;
 public interface UserService {
 
     Auctionuser Login(String username, String password);
+
+    Integer UserRegistered(Auctionuser user);
 }

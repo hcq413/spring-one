@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </dd>
         <dd class="buttom">
            <input name="" type="submit" value="登 录" class="spbg buttombg f14 lf" />
-           <input id="register" name="" type="button" value="注 册" class="spbg buttombg f14 lf" />
+           <input id="register" name="" type="button" value="注 册" class="spbg buttombg f14 lf"  onclick='location.href=("${pageContext.request.contextPath}/register.jsp")'/>
            <span class="blues  lf"><a href="" title="">忘记密码?</a></span>
            <div class="cl"></div>
         </dd>

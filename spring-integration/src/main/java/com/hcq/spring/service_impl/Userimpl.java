@@ -27,4 +27,10 @@ public class Userimpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public Integer UserRegistered(Auctionuser user) {
+        user.setUserisadmin(0);
+        return mapper.insert(user);
+    }
 }

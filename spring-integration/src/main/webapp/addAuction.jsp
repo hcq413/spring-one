@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<form action="${pageContext.request.contextPath}/auction/publishAuctions" 
+<form action="${pageContext.request.contextPath}/publishAuctions"
 		enctype="multipart/form-data" method="post">
 <div class="wrap">
   <!-- main begin-->
